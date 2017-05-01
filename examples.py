@@ -1,6 +1,8 @@
 from __future__ import division
 from camfr import *
 from RCLED import *
+import numpy as np
+from tqdm import tqdm
 
 
 def edts():
@@ -29,12 +31,10 @@ def dipole_emission():
     # Create materials.
     SiO2 = Material(1.45)
     EDTS = Material(1.6)
-    absorbing = Material(1.45-0.5j)
     air = Material(1.0)
 
     # Define layer structure.
     top = Uniform(EDTS, 0.1) + \
-          Uniform(absorbing, 2) + \
           Uniform(air, 0.000)
 
     bot = Uniform(EDTS, 1.0) + \
@@ -61,4 +61,4 @@ if __name__ == "__main__":
     air = Material(1.0)
 
     # edts()
-    dipole_emission()
+    # dipole_emission()
